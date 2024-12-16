@@ -4,7 +4,6 @@ import { NovaClient, ProgramStateConnection } from "@wandelbots/wandelbots-js"
 import PickAndPlaceScript from "./pickAndPlace.ws"
 import AnimatedBackground from "./../templates/Placeholder/AnimatedBackground"
 
-
 const nova = new NovaClient({
     // Read instance url from .env file
     instanceUrl: "http://10.175.1.182/",
@@ -77,7 +76,11 @@ function handleFillOrder(){
     if (item1Value > 0 || item2Value > 0 || item3Value > 0){
         (document.getElementById("fillOrderButton") as HTMLButtonElement).innerText = "Filling Order...";
         let runner = new ProgramStateConnection(nova);
-        runner.executeProgram(PickAndPlaceScript)
+        runner.executeProgram(PickAndPlaceScript, {
+            num_product_1: item1Value,
+            num_product_2: item2Value,
+            num_product_3: item3Value
+        });
     }
     else{
         // Change the color of the button to red to indicate that the user must choose at least one item
