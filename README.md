@@ -2,9 +2,18 @@
 This repo uses Wandelbots NOVA to create a pick and place application. App interface uses
 TypeScript and React. The UR5-cb3 robot uses Wandelscript to send commands
 
-## Installing dependencies
+## Installing NOVA
+To create an app, a local or cloud hosted instance of NOVA must be available. Installing
+a local instance of NOVA via Hyper-V is proven to work
+- Download .ISO from Wandelbots developer portal
+- Create a VM that meets the [Requirements](https://docs.wandelbots.io/24.8/installation/#virtual-machines-and-physical-instances--ipcs). **NO DYNAMIC MEMORY on the VM**
+- After the initial install and first restart, shut down VM and remove the .ISO to prevent getting stuck in an infinite install loop
 
-App developed using VS Code
+## Installing app dependencies
+
+App developed using VS Code. Follow instructions in Wandelbots DEV portal.
+
+Create the template app by running `nova app create yourAppNameHere`. *Must have NOVA CLI tools installed and added to PATH variable*
 
 To install the dependencies, run: `npm install`
 in the VS Code terminal
