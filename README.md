@@ -34,3 +34,6 @@ NOVA_PASSWORD="password"
 Once everything is set up, you can run the NextJS dev server with `npm run dev`
 
 Terminal window will provide the local url to connect to via the web browser
+
+## Deploy the App
+Apps can be deployed via Docker by following the [official instructions](https://docs.wandelbots.io/24.8/typescript/deploy-robot/)
