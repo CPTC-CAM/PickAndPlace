@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Grid, TextField, Button } from '@mui/material';
 import { NovaClient, ProgramStateConnection } from "@wandelbots/wandelbots-js"
 import PickAndPlaceScript from "./pickAndPlace.ws"
+import AnimatedBackground from "./../templates/Placeholder/AnimatedBackground"
 
 
 const nova = new NovaClient({
@@ -15,11 +16,12 @@ const nova = new NovaClient({
 const PickAndPlaceComponent: React.FC = () => {
     return (
         <Container>
+            <AnimatedBackground />
             <Grid container spacing={3} style={{ marginTop: '20px' }}>
                 <Grid item xs={4}>
                     <TextField
                         id = "item1"
-                        label="Choose number of item #1"
+                        label="Input Quantity of Item #1"
                         type="number"
                         variant="outlined"
                         fullWidth
@@ -29,7 +31,7 @@ const PickAndPlaceComponent: React.FC = () => {
                 <Grid item xs={4}>
                     <TextField
                         id = "item2"
-                        label="Choose number of item #2"
+                        label="Input Quantity of Item #2"
                         type="number"
                         variant="outlined"
                         fullWidth
@@ -39,7 +41,7 @@ const PickAndPlaceComponent: React.FC = () => {
                 <Grid item xs={4}>
                     <TextField
                         id = "item3"
-                        label="Choose number of item #3"
+                        label="Input Quantity of Item #3"
                         type="number"
                         variant="outlined"
                         fullWidth
