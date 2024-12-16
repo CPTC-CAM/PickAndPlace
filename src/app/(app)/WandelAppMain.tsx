@@ -4,8 +4,8 @@ import { env } from "../../runtimeEnv"
 import { observer } from "mobx-react-lite"
 import { useWandelApp } from "../../WandelAppContext"
 import { LoadingScreen } from "./LoadingScreen"
-import { WandelAppPlaceholder } from "../../templates/Placeholder/WandelAppPlaceholder"
 import { NoMotionGroupModal } from "@wandelbots/wandelbots-js-react-components"
+import PickAndPlaceComponent from "../../components/PickAndPlaceComponent"
 
 export const WandelAppMain = observer(() => {
   const wandelApp = useWandelApp()
@@ -23,7 +23,7 @@ export const WandelAppMain = observer(() => {
   return (
     <>
       {/* add your code here */}
-      <WandelAppPlaceholder />
+      <PickAndPlaceComponent />
     </>
   )
 })
