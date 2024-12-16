@@ -4,7 +4,6 @@ import { NovaClient, ProgramStateConnection } from "@wandelbots/wandelbots-js"
 import PickAndPlaceScript from "./pickAndPlace.ws"
 import AnimatedBackground from "./../templates/Placeholder/AnimatedBackground"
 
-
 const nova = new NovaClient({
     // Read instance url from .env file
     instanceUrl: "http://10.175.1.182/",
@@ -70,14 +69,18 @@ const PickAndPlaceComponent: React.FC = () => {
 function handleFillOrder(){
     // Check if at least one of the items has a value greater than 0
     // If so, call the pick and place function
-    const item1Value = parseInt((document.getElementById("item1") as HTMLInputElement)?.value || '0', 10);
-    const item2Value = parseInt((document.getElementById("item2") as HTMLInputElement)?.value || '0', 10);
-    const item3Value = parseInt((document.getElementById("item3") as HTMLInputElement)?.value || '0', 10);
+    const item1Value:number = parseInt((document.getElementById("item1") as HTMLInputElement)?.value || '0', 10);
+    const item2Value:number = parseInt((document.getElementById("item2") as HTMLInputElement)?.value || '0', 10);
+    const item3Value:number = parseInt((document.getElementById("item3") as HTMLInputElement)?.value || '0', 10);
 
     if (item1Value > 0 || item2Value > 0 || item3Value > 0){
         (document.getElementById("fillOrderButton") as HTMLButtonElement).innerText = "Filling Order...";
         let runner = new ProgramStateConnection(nova);
-        runner.executeProgram(PickAndPlaceScript)
+        runner.executeProgram(PickAndPlaceScript, {
+            num_product_1: item1Value,
+            num_product_2: item2Value,
+            num_product_3: item3Value
+        });
     }
     else{
         // Change the color of the button to red to indicate that the user must choose at least one item

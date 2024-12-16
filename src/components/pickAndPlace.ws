@@ -7,10 +7,9 @@
 myrobot = myvirtualbot # Name of the robot
 
 # These are inputs will be provided via the ProgramRunner in the App
-# The Robot Pad version will use these hardcoded variables
-num_product_1 = 1
-num_product_2 = 1
-num_product_3 = 1
+num_product_1 = read(arguments, "num_product_1")
+num_product_2 = read(arguments, "num_product_2")
+num_product_3 = read(arguments, "num_product_3")
 
 # Using join rotations for more predictable movements
 home = [-0.976, -2.08, -1.62, 3.715, -5.713, 1.584]
