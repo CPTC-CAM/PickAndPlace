@@ -2,6 +2,10 @@
 This repo uses Wandelbots NOVA to create a pick and place application. App interface uses
 TypeScript and React. The UR5-cb3 robot uses Wandelscript to send commands
 
+This app was built with
+- NOVA 28.8.1
+- Nvidia Omniverse and Isaac Sim 4.1
+
 ## Installing NOVA
 To create an app, a local or cloud hosted instance of NOVA must be available. Installing
 a local instance of NOVA via Hyper-V is proven to work
