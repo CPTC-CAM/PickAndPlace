@@ -42,6 +42,9 @@ Terminal window will provide the local url to connect to via the web browser
 ## Deploy the App
 Apps can be deployed via Docker by following the [official instructions](https://docs.wandelbots.io/24.8/typescript/deploy-robot/)
 
+## Simulation via Isaac Sim
+Our current simulation scene is located in the [Wiki](https://github.com/CPTC-CAM/PickAndPlace/wiki/Initial-Development-%E2%80%90-Omniverse-Scene)
+
 ## Resources
 Robot positions and schematics - https://github.com/CPTC-CAM/PickAndPlace/wiki/Diagrams
 
