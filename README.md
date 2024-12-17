@@ -44,3 +44,8 @@ Apps can be deployed via Docker by following the [official instructions](https:/
 
 ## Resources
 Robot positions and schematics - https://github.com/CPTC-CAM/PickAndPlace/wiki/Diagrams
+
+## Handy commands
+To get IP address of Hyper-V VMs, run in admin Powershell
+
+ `get-vm | ?{$_.State -eq "Running"} | select -ExpandProperty networkadapters | select vmname, macaddress, switchname, ipaddresses | ft -wrap -autosize`
