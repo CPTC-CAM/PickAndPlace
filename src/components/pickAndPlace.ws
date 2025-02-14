@@ -4,7 +4,12 @@
 # grip the objects one at a time, and place them in a bin if a bin is sensed on a
 # conveyor belt. This program is a basic one meant to run in Robot Pad
 
-myrobot = myvirtualbot # Name of the robot
+myrobot = physicalbot # Name of the robot
+
+# Harcoded inputs for testing
+#num_product_1 = 3
+#num_product_2 = 3
+#num_product_3 = 2
 
 # These are inputs will be provided via the ProgramRunner in the App
 num_product_1 = read(arguments, "num_product_1")
@@ -36,18 +41,9 @@ move_to_box = [-1.419, -1.776, -1.248, 4.571, -6.174, 0.565]
 place_in_box = [-1.628, -2.410, -0.841, 4.595, -6.233, 1.803]
 away_from_box = [-1.599, -1.981, -0.842, 4.579, -4.663, 1.803]
 
-# Remove product bin
-#up_from_box = [-1.321, -1.454, -1.583, 3.612, -5.983, 1.396]
-#rotate_gripper = []
-#box_lineup = []
-#box_pickup = []
-#box_up = []
-#box_away = []
-#box_dropoff = []
-#box_dropoff_up = []
-
 # GLOBALS
 WAIT_TIME = 500
+LONG_PAUSE = 200
 VEL_APPROACH = 50
 VEL_PICKED = 90
 VEL_FREE = 130
@@ -66,19 +62,38 @@ def close_gripper():
 def get_and_place_chute_product(approach_pose, pick_pose, up_pose):
     velocity(VEL_FREE)
     move via joint_p2p() to approach_pose
+    sync
+
+    wait(LONG_PAUSE)
     velocity(VEL_APPROACH)
     move via joint_p2p() to pick_pose
+    sync
+
+    wait(LONG_PAUSE)
     velocity(VEL_PICKED)
     close_gripper()
+    sync
+
+    wait(LONG_PAUSE)
     move via joint_p2p() to up_pose
     place_product_in_box()
+    wait(LONG_PAUSE)
 
 def place_product_in_box():
     move via joint_p2p() to move_to_box
+    sync
+
+    wait(LONG_PAUSE)
     move via joint_p2p() to place_in_box
+    sync
+
+    wait(LONG_PAUSE)
     open_gripper()
     velocity(VEL_FREE)
     move via joint_p2p() to away_from_box
+    sync
+    
+    wait(LONG_PAUSE)
 
 ## Start program
 velocity(VEL_FREE) # Slow speed down at the start to avoid fast movement
