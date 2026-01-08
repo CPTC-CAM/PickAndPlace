@@ -2,6 +2,8 @@
 This repo uses Wandelbots NOVA to create a pick and place application. App interface uses
 TypeScript and React. The UR5-cb3 robot uses Wandelscript to send commands
 
+[Demo Videos](https://github.com/CPTC-CAM/PickAndPlace/discussions/18)
+
 This app was built with
 - NOVA 28.8.1
 - Nvidia Omniverse and Isaac Sim 4.1
